@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import { Header } from "./components/Header";
+import { CarFlipperSection } from "./components/CarFlipperSection";
+import { AppStyled } from "./components/styles/App.styled";
+import GlobalStyled from "./components/styles/Global.styled";
+
+const theme = {
+  colors: {
+    yellow: "#FBC843",
+    blackTitle: "#2B3144", //Large titles
+    blackTrue: "#000000",
+    black1B1: "#1B1E28",
+    white: "#FFFFFF",
+    grey414: "#414A69", //"available on the app"
+    grey4B5: "#4B5168",
+    grey4F5: "#4F5874", //footer links
+    greyLightBox: "#F5F5F7", //boxes with info
+  },
+  fonts: {
+    bebas: "bebas",
+  },
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyled />
+      <AppStyled>
+        <Header />
+        <CarFlipperSection />
+      </AppStyled>
+    </ThemeProvider>
   );
 }
 
