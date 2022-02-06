@@ -21,10 +21,6 @@ export const CarFlipperSection = () => {
   });
 
   useEffect(() => {
-    console.log(
-      "what is going on here? ",
-      window.matchMedia("(max-width: 1000px)").matches
-    );
     if (inView && firstView) {
       setFirstView(false);
       //animate yellow box
@@ -207,7 +203,6 @@ export const CarFlipperSection = () => {
 
   useEffect(() => {
     if (!firstRun) {
-      console.log("Switch cars ran");
       switchCars();
     }
   }, [carSelected, firstRun]);

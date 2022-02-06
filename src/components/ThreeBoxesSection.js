@@ -24,7 +24,7 @@ export const ThreeBoxesSection = () => {
   useEffect(() => {
     if (inView && firstView) {
       setFirstView(false);
-      console.log("Ran animations");
+
       //animate stuff
 
       //animate box1

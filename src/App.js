@@ -7,11 +7,10 @@ import { DeliveredToYourDoorSection } from "./components/DeliveredToYourDoorSect
 import { TradeInYourCarSection } from "./components/TradeInYourCarSection";
 import { ThreeBoxesSection } from "./components/ThreeBoxesSection";
 import { BottomSection } from "./components/BottomSection";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import loadCrown from "./assets/images/load-crown.png";
 import ring from "./assets/images/ring.png";
 import gsap from "gsap";
-import { useRef } from "react/cjs/react.development";
 
 const theme = {
   colors: {
