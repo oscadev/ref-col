@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import guy from "../assets/images/guy.png";
 import car from "../assets/images/bottom-car.png";
 import arrow from "../assets/images/arrow.png";
 import logo from "../assets/images/black-logo.svg";
-import { useRef } from "react/cjs/react.development";
 import { useInView } from "react-intersection-observer";
 import { gsap, Power3 } from "gsap";
 
