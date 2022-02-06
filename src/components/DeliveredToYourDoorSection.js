@@ -1,7 +1,6 @@
 import { gsap, Power3 } from "gsap";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef } from "react/cjs/react.development";
 import styled from "styled-components";
 import deliveredMap from "../assets/images/delivered-map.png";
 import deliveredPhone from "../assets/images/delivered-phone.png";

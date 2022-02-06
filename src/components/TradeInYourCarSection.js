@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import porsche from "../assets/images/trade-porsche.png";
 import phone from "../assets/images/trade-phone.png";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useRef } from "react/cjs/react.development";
 import gsap from "gsap/all";
 
 export const TradeInYourCarSection = () => {
