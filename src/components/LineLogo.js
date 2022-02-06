@@ -10,4 +10,8 @@ const LineLogoStyled = styled.img`
   position: absolute;
   top: 42px;
   left: 101px;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    top: 42px;
+    left: 20px;
+  }
 `;

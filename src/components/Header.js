@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { AvailableBtn, AvailableBtnStyled } from "./AvailableBtn";
 import { H1 } from "./H1";
 import { LineLogo } from "./LineLogo";
 import cars from "../assets/images/header-cars.png";
 import headerPhone from "../assets/images/header-phone.png";
-import { TweenMax, Power3, gsap } from "gsap";
-import { H1Styled } from "./styles/H1.styled";
+import { Power3, gsap } from "gsap";
 import arrow from "../assets/images/arrow.png";
 
 export const Header = () => {
@@ -59,9 +57,13 @@ export const Header = () => {
       <LineLogo />
       <H1Styled ref={(el) => (bigTitle = el)}>
         DRIVE A NEW
-        <br /> CAR EVERY MONTH.
+        {window.matchMedia("(max-width: 700px)") ? " " : <br />} CAR EVERY
+        MONTH.
       </H1Styled>
-      <AvailableBtnStyled ref={(el) => (avText = el)}>
+      <AvailableBtnStyled
+        ref={(el) => (avText = el)}
+        onClick={() => alert("Just a demo!")}
+      >
         <button>Available On the App</button>
         <img src={arrow} />
       </AvailableBtnStyled>
@@ -81,19 +83,87 @@ const HeaderStyled = styled.header`
   flex-direction: column;
   position: relative;
   transform: translateX(-100%);
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    height: 340px;
+    max-width: 100vw;
+  }
+`;
+
+const H1Styled = styled.h1`
+  font-family: ${(props) => props.theme.fonts.bebas};
+  font-size: 145px;
+  line-height: 138px;
+  letter-spacing: -4.10319px;
+  color: ${(props) => props.theme.colors.white};
+  width: 827px;
+  font-weight: 100;
+  margin: 0;
+  margin-left: 95px;
+  margin-top: 179px;
+  transform: translateY(-30%) translateX(-5%);
+  opacity: 0;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 53px;
+    line-height: 52px;
+    letter-spacing: -1.49979px;
+    margin-left: 20px;
+    margin-top: 100px;
+    width: initial;
+  }
+`;
+
+const AvailableBtnStyled = styled.div`
+  width: 232px;
+  height: 54px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  margin-left: 99px;
+  margin-top: 21px;
+  /* border: solid 1px white; */
+  opacity: 0;
+  transform: translateY(-100%);
+  cursor: pointer;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: ${({ theme }) => theme.colors.grey414};
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    margin-left: 5px;
+    margin-top: 0px;
+    justify-content: flex-start;
+  }
 `;
 
 const HeaderCars = styled.img`
   margin-top: 55;
   position: absolute;
   bottom: -99px;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    max-width: 100vw;
+    width: 430px;
+    bottom: -51px;
+  }
 `;
 
 const HeaderPhone = styled.img`
   position: absolute;
   top: 108.57px;
   left: 1081px;
-  filter: drop-shadow(-15px 15px 25.45px rgba(0, 0, 0, 0.54));
+  filter: ${(props) => props.theme.shadow};
   transform: translateX(50%);
   opacity: 0;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+    filter: none;
+  }
 `;
