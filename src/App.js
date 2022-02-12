@@ -28,7 +28,8 @@ const theme = {
     bebas: "bebas",
   },
   shadow: "drop-shadow(-15px 15px 25.45px rgba(0, 0, 0, 0.54))",
-  mobile: "1240px",
+  mobile: "414px",
+  desktop: "1601px",
 };
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
       document.body.style.display = "none";
       window.scrollTo(0, 0);
     };
-
+    window.scrollTo(0, 0);
     const tim = setTimeout(() => {
       setModal(false);
     }, 1000);
@@ -56,7 +57,7 @@ function App() {
 
     gsap.to(modalRef, 1.5, {
       delay: 0,
-      rotate: 45,
+      // rotate: 45,
       opacity: 0,
     });
     return () => {

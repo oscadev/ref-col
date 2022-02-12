@@ -18,7 +18,7 @@ export const DeliveredToYourDoorSection = () => {
   //interesection observer
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.4,
+    threshold: 0.6,
   });
 
   //big title and map come in first, then car and subtitle, and lastly phone
@@ -123,13 +123,14 @@ export const DeliveredToYourDoorSection = () => {
       <LeftSectionStyled>
         <h2 ref={(el) => (titleRef = el)}>
           DELIVERED TO{" "}
-          {window.matchMedia("(max-width: 700px)").matches ? " " : <br />}
+          {window.matchMedia("(max-width: 414px)").matches ? " " : <br />}
           YOUR DOOR.
         </h2>
         <p ref={(el) => (subtitleRef = el)}>
-          Eleanor works with your schedule to have a white-glove{" "}
-          {window.matchMedia("(max-width: 1100px)").matches ? " " : <br />}
-          delivery service deliver your new vehicle right to your door.
+          Eleanor works with your schedule to have a
+          {window.matchMedia("(max-width: 414px)").matches ? <br /> : " "}{" "}
+          white-glove delivery service deliver your new vehicle right to your
+          door.
         </p>
         <CarStyled src={deliveredPorsche} ref={(el) => (carRef = el)} />
       </LeftSectionStyled>
@@ -146,20 +147,30 @@ export const DeliveredToYourDoorSection = () => {
 };
 
 const DeliveredStyled = styled.div`
-  width: 100%;
-  height: 930px;
+  width: calc(1600vw / 1600 * 100);
+  height: calc(930vw / 1600 * 100);
   display: flex;
   justify-content: flex-start;
-  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     height: initial;
     flex-wrap: wrap;
+    width: calc(414vw / 414 * 100);
+  }
+
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    width: 1600px;
+    height: 930px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `;
 
 const LeftSectionStyled = styled.div`
-  width: 527px;
+  width: calc(527vw / 1600 * 100);
   height: 100%;
 
   display: flex;
@@ -170,50 +181,84 @@ const LeftSectionStyled = styled.div`
   z-index: 2;
   h2 {
     font-family: ${(props) => props.theme.fonts.bebas};
-    font-size: 95px;
+    font-size: calc(95vw / 1600 * 100);
     color: ${(props) => props.theme.colors.blackTitle};
     margin: 0;
-    margin-top: 176px;
+    margin-top: calc(176vw / 1600 * 100);
     font-weight: 100;
-    margin-left: 101px;
-    line-height: 98px;
+    margin-left: calc(101vw / 1600 * 100);
+    line-height: calc(98vw / 1600 * 100);
     opacity: 0;
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 45px;
+      font-size: calc(45vw / 414 * 100);
       margin: 0;
-      margin-top: 169px;
-      margin-left: 20px;
+      margin-top: calc(169vw / 414 * 100);
+      margin-left: calc(20vw / 414 * 100);
       font-weight: 100;
-      line-height: 48px;
-      letter-spacing: -0.217059px;
-      max-width: calc(100vw - 40px);
+      line-height: calc(48vw / 414 * 100);
+      letter-spacing: calc(-0.217059vw / 414 * 100);
+      max-width: calc(100vw - 9.662vw);
+    }
+    @media (min-width: ${({ theme }) => theme.desktop}) {
+      font-family: ${(props) => props.theme.fonts.bebas};
+      font-size: 95px;
+      color: ${(props) => props.theme.colors.blackTitle};
+      margin: 0;
+      margin-top: 176px;
+      font-weight: 100;
+      margin-left: 101px;
+      line-height: 98px;
+      opacity: 0;
     }
   }
   p {
     margin: 0;
-    font-size: 16px;
-    width: 338px;
-    letter-spacing: -0.470588px;
+    font-size: calc(16vw / 1600 * 100);
+    width: calc(338vw / 1600 * 100);
+    letter-spacing: calc(-0.470588vw / 1600 * 100);
     color: ${(props) => props.theme.colors.blackTrue};
-    line-height: 26px;
-    margin-left: 101px;
-    margin-top: 27px;
+    line-height: calc(26vw / 1600 * 100);
+    margin-left: calc(101vw / 1600 * 100);
+    margin-top: calc(27vw / 1600 * 100);
     opacity: 0;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      margin-left: 20px;
-      margin-right: 20px;
+      margin-left: calc(20vw / 414 * 100);
+      /* margin-right: calc(20vw / 414 * 100); */
       width: 100vw;
       max-width: calc(100vw - 40px);
+      font-size: calc(16vw / 414 * 100);
+      line-height: calc(26vw / 414 * 100);
+      letter-spacing: calc(0.5vw / 414 * 100);
+      //
+      font-size: calc(16vw / 414 * 100);
+      line-height: calc(26vw / 414 * 100);
+      letter-spacing: calc(-0.470588vw / 414 * 100);
+    }
+
+    @media (min-width: ${({ theme }) => theme.desktop}) {
+      margin: 0;
+      font-size: 16px;
+      width: 338px;
+      letter-spacing: -0.470588px;
+      color: ${(props) => props.theme.colors.blackTrue};
+      line-height: 26px;
+      margin-left: 101px;
+      margin-top: 27px;
+      opacity: 0;
     }
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     height: initial;
+    width: calc(414vw / 414 * 100);
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    width: 527px;
   }
 `;
 
 const RightSectionStyled = styled.div`
-  flex-grow: 1;
+  /* flex-grow: 1; */
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -225,44 +270,63 @@ const RightSectionStyled = styled.div`
     flex-grow: initial;
     height: initial;
   }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+  }
 `;
 
 const MapStyled = styled.img`
-  width: 850px;
+  width: calc(850vw / 1600 * 100);
   position: absolute;
-  top: 100px;
-  left: 123px;
+  top: calc(100vw / 1600 * 100);
+  left: calc(123vw / 1600 * 100);
   opacity: 0;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: initial;
-    margin-top: 82px;
-    width: 630px;
+    margin-top: calc(82vw / 414 * 100);
+    width: calc(630vw / 414 * 100);
     /* height: 308px; */
     max-width: 100vw;
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    width: 850px;
+    position: absolute;
+    top: 100px;
+    left: 123px;
+    opacity: 0;
   }
 `;
 
 const PhoneStyled = styled.img`
-  width: 331px;
-  left: 463px;
+  width: calc(331vw / 1600 * 100);
+  left: calc(463vw / 1600 * 100);
   position: absolute;
   z-index: 2;
   opacity: 0;
   filter: ${(props) => props.theme.shadow};
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 198px;
-    left: 116px;
-    margin-top: 22px;
+    width: calc(198vw / 414 * 100);
+    left: calc(116vw / 414 * 100);
+    margin-top: calc(22vw / 414 * 100);
     filter: none;
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    width: 331px;
+    left: 463px;
   }
 `;
 
 const CarStyled = styled.img`
   position: absolute;
-  left: 429px;
-  top: 502px;
+  left: calc(429vw / 1600 * 100);
+  top: calc(502vw / 1600 * 100);
+  width: calc(499vw / 1600 * 100);
   opacity: 0;
   @media (max-width: ${({ theme }) => theme.mobile}) {
     display: none;
+  }
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    left: 429px;
+    top: 502px;
+    width: 499px;
   }
 `;

@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 export const AppStyled = styled.div`
-  min-height: 100vh;
+  max-width: 1600px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100%;
+  }
 `;

@@ -11,7 +11,7 @@ export const ThreeBoxesSection = () => {
   //interesection observer
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.4,
+    threshold: window.matchMedia("(max-width: 414px)").matches ? 0.2 : 0.4,
   });
 
   //animation refs
@@ -94,19 +94,32 @@ export const ThreeBoxesSection = () => {
 };
 
 const ThreeBoxesSectionStyled = styled.div`
-  height: 683px;
-  width: 100%;
+  height: calc(683vw / 1600 * 100);
+  width: calc(1600vw / 1600 * 100);
+
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
 
-  padding-left: 101px;
+  /* margin-left: calc(101vw / 1600 * 100); */
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-wrap: wrap;
     padding-left: 0px;
     height: initial;
     margin-top: 100px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    height: 683px;
+    width: 1600px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-left: 0;
+    /* margin: 100px; */
+    /* padding-left: 101px; */
   }
 `;
 
@@ -114,46 +127,115 @@ const Box = ({ title, subtitle, img, innerRef }) => {
   return (
     <BoxStyled ref={innerRef}>
       <img src={img} alt="" />
-      <h3>{title}</h3>
-      <p>{subtitle}</p>
+      <div>
+        <h3>{title}</h3>
+        <div>
+          <p>{subtitle}</p>
+        </div>
+      </div>
     </BoxStyled>
   );
 };
 
 const BoxStyled = styled.div`
-  width: 453px;
-  height: 453px;
+  width: calc(453vw / 1600 * 100);
+  height: calc(453vw / 1600 * 100);
   background-color: ${(props) => props.theme.colors.greyLightBox};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  margin-right: 20px;
+  margin-right: calc(20vw / 1600 * 100);
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(calc(-50vw / 1600 * 100));
+  &:first-child {
+    margin-left: calc(101vw / 1600 * 100);
+  }
   img {
-    height: 150px;
-    margin-top: 95px;
+    height: calc(150vw / 1600 * 100);
+    margin-top: calc(95vw / 1600 * 100);
   }
   h3 {
     font-family: ${(props) => props.theme.fonts.bebas};
-    font-size: 34px;
+    font-size: calc(34vw / 1600 * 100);
     color: ${(props) => props.theme.colors.blackTitle};
     margin: 0;
 
     font-weight: 100;
-    line-height: 98px;
+    line-height: calc(98vw / 1600 * 100);
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      line-height: 88px;
+      line-height: calc(88vw / 414 * 100);
     }
   }
   p {
-    width: 258px;
-    line-height: 26px;
+    width: calc(258vw / 1600 * 100);
+    line-height: calc(21vw / 1600 * 100);
+    font-size: calc(16vw / 1600 * 100);
   }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     max-width: 100vw;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: calc(10vw / 414 * 100);
+    width: calc(414vw / 414 * 100);
+    height: calc(452vw / 414 * 100);
+    &:first-child {
+      margin-left: 0;
+    }
+    //
+    img {
+      height: calc(150vw / 414 * 100);
+      margin-top: calc(91vw / 414 * 100);
+    }
+    div {
+      h3 {
+        font-family: ${(props) => props.theme.fonts.bebas};
+        font-size: calc(34vw / 414 * 100);
+        color: ${(props) => props.theme.colors.blackTitle};
+        margin: 0;
+        padding: 0;
+        font-weight: 100;
+        line-height: calc(88vw / 414 * 100);
+      }
+      div {
+        display: flex;
+        p {
+          width: 0;
+          flex-grow: 1;
+
+          line-height: calc(21vw / 414 * 100);
+          font-size: calc(14vw / 414 * 100);
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  @media (min-width: ${({ theme }) => theme.desktop}) {
+    width: 453px;
+    height: 453px;
+    margin-right: 20px;
+    transform: translateY(-50px);
+    &:first-child {
+      margin-left: 101px;
+    }
+    img {
+      height: 150px;
+      margin-top: 95px;
+    }
+    h3 {
+      font-family: ${(props) => props.theme.fonts.bebas};
+      font-size: 34px;
+      color: ${(props) => props.theme.colors.blackTitle};
+      margin: 0;
+
+      font-weight: 100;
+      line-height: 98px;
+    }
+    p {
+      width: 258px;
+      line-height: 21px;
+      font-size: 16px;
+    }
   }
 `;
