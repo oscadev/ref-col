@@ -59,21 +59,21 @@ export const ThreeBoxesSection = () => {
     {
       title: "SIMPLE MONTHLY PRICING",
       subtitle:
-        "Pick your plan, pay the monthly price.  Thats it.  No hidden fees!",
+        "Pick your plan, pay the monthly price. Thats it.  No hidden fees!",
       img: boxCoin,
       ref: boxRef1,
     },
     {
       title: "VEHICLE INSURANCE INCLUDED",
       subtitle:
-        "That’s right, you’re covered.  All Eleanor plans include insurance coverage.",
+        "That’s right, you’re covered. All Eleanor plans include insurance coverage.",
       img: boxInsurance,
       ref: boxRef2,
     },
     {
       title: "MAINTENANCE IS COVERED",
       subtitle:
-        "Leave it us.  Don’t worry about maintaining your vehicle.  Eleanor covers that as well.",
+        "Leave it us. Don’t worry about maintaining your vehicle. Eleanor covers that as well.",
       img: boxWrench,
       ref: boxRef3,
     },
@@ -151,27 +151,35 @@ const BoxStyled = styled.div`
   &:first-child {
     margin-left: calc(101vw / 1600 * 100);
   }
+
+  div {
+    h3 {
+      font-family: ${(props) => props.theme.fonts.bebas};
+      font-size: calc(34vw / 1600 * 100);
+      color: ${(props) => props.theme.colors.blackTitle};
+      margin: 0;
+
+      font-weight: 100;
+      line-height: calc(98vw / 1600 * 100);
+    }
+    div {
+      display: flex;
+      p {
+        width: 0;
+        flex-grow: 1;
+        line-height: calc(21vw / 1600 * 100);
+        font-size: calc(14vw / 1600 * 100);
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
   img {
     height: calc(150vw / 1600 * 100);
     margin-top: calc(95vw / 1600 * 100);
   }
-  h3 {
-    font-family: ${(props) => props.theme.fonts.bebas};
-    font-size: calc(34vw / 1600 * 100);
-    color: ${(props) => props.theme.colors.blackTitle};
-    margin: 0;
 
-    font-weight: 100;
-    line-height: calc(98vw / 1600 * 100);
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      line-height: calc(88vw / 414 * 100);
-    }
-  }
-  p {
-    width: calc(258vw / 1600 * 100);
-    line-height: calc(21vw / 1600 * 100);
-    font-size: calc(16vw / 1600 * 100);
-  }
   @media (max-width: ${({ theme }) => theme.mobile}) {
     max-width: 100vw;
     margin: 0;
@@ -223,19 +231,27 @@ const BoxStyled = styled.div`
       height: 150px;
       margin-top: 95px;
     }
-    h3 {
-      font-family: ${(props) => props.theme.fonts.bebas};
-      font-size: 34px;
-      color: ${(props) => props.theme.colors.blackTitle};
-      margin: 0;
+    div {
+      h3 {
+        font-family: ${(props) => props.theme.fonts.bebas};
+        font-size: 34px;
+        color: ${(props) => props.theme.colors.blackTitle};
+        margin: 0;
 
-      font-weight: 100;
-      line-height: 98px;
-    }
-    p {
-      width: 258px;
-      line-height: 21px;
-      font-size: 16px;
+        font-weight: 100;
+        line-height: 98px;
+      }
+      div {
+        display: flex;
+        p {
+          width: 0;
+          flex-grow: 1;
+          line-height: 21px;
+          font-size: 14px;
+          margin: 0;
+          padding: 0;
+        }
+      }
     }
   }
 `;

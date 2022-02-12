@@ -43,10 +43,9 @@ function App() {
       document.body.style.display = "none";
       window.scrollTo(0, 0);
     };
-    window.scrollTo(0, 0);
     const tim = setTimeout(() => {
       setModal(false);
-    }, 1000);
+    }, 2000);
 
     //animate logo
 
@@ -55,8 +54,8 @@ function App() {
       rotate: 45,
     });
 
-    gsap.to(modalRef, 1.5, {
-      delay: 0,
+    gsap.to(modalRef, 2, {
+      delay: 1,
       // rotate: 45,
       opacity: 0,
     });

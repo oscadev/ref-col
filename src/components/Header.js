@@ -13,6 +13,7 @@ export const Header = () => {
   let phone = useRef(null);
   let bigTitle = useRef(null);
   let avText = useRef(null);
+  const delayer = 1;
 
   useEffect(() => {
     //animate yellow box
@@ -20,7 +21,7 @@ export const Header = () => {
       opacity: 1,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1,
+      delay: 1 + delayer,
     });
 
     //animate phone
@@ -28,7 +29,7 @@ export const Header = () => {
       opacity: 1,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1.5,
+      delay: 1.5 + delayer,
     });
 
     //animate big title
@@ -37,7 +38,7 @@ export const Header = () => {
       y: 0,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1.5,
+      delay: 1.5 + delayer,
     });
 
     //animate big title
@@ -46,7 +47,7 @@ export const Header = () => {
       y: 0,
 
       ease: Power3.easeOut,
-      delay: 1.5,
+      delay: 1.5 + delayer,
     });
   }, []);
   return (
