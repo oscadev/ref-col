@@ -107,12 +107,12 @@ export const DeliveredToYourDoorSection = () => {
           opacity: 0,
           y: -50,
           ease: Power3.easeOut,
-          delay: 0.5,
         },
         {
           opacity: 1,
           y: 0,
           ease: Power3.easeOut,
+          delay: 0.6,
         }
       );
     }
