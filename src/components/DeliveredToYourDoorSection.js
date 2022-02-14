@@ -18,7 +18,7 @@ export const DeliveredToYourDoorSection = () => {
   //interesection observer
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.4,
+    threshold: 0.5,
   });
 
   //big title and map come in first, then car and subtitle, and lastly phone
