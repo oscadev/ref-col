@@ -196,10 +196,6 @@ export const CarFlipperSection = () => {
   ];
 
   useEffect(() => {
-    //run on load for test, then change to "when in view"
-  }, []);
-
-  useEffect(() => {
     if (!firstRun) {
       switchCars();
     }

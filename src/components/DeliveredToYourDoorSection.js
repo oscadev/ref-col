@@ -18,7 +18,7 @@ export const DeliveredToYourDoorSection = () => {
   //interesection observer
   const { ref, inView, entry } = useInView({
     /* Optional options */
-    threshold: 0.6,
+    threshold: 0.4,
   });
 
   //big title and map come in first, then car and subtitle, and lastly phone
@@ -99,7 +99,7 @@ export const DeliveredToYourDoorSection = () => {
         }
       );
 
-      //animate subtitle
+      //animate phone
       gsap.fromTo(
         phoneRef,
         1,
@@ -113,7 +113,6 @@ export const DeliveredToYourDoorSection = () => {
           opacity: 1,
           y: 0,
           ease: Power3.easeOut,
-          delay: 1,
         }
       );
     }
