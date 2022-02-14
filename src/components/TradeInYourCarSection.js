@@ -3,15 +3,13 @@ import styled from "styled-components";
 import porsche from "../assets/images/trade-porsche.png";
 import phone from "../assets/images/trade-phone.png";
 import { useInView } from "react-intersection-observer";
-import gsap from "gsap/all";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export const TradeInYourCarSection = () => {
-  const [firstView, setFirstView] = useState(true);
-  //interesection observer
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0.6,
-  });
+  //ScrollTrigger ref
+  let scrollRef = useRef(null);
 
   //animation refs
   let yellowBoxRef = useRef(null);
@@ -20,40 +18,52 @@ export const TradeInYourCarSection = () => {
   let subtitleRef = useRef(null);
 
   useEffect(() => {
-    if (inView && firstView) {
-      setFirstView(false);
+    //animate yellow box
+    gsap.to(yellowBoxRef, 1, {
+      delay: window.matchMedia("(max-width: 414px)").matches ? 1 : 0,
+      x: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: scrollRef,
+        start: "top center",
+      },
+    });
 
-      //animate yellow box
-      gsap.to(yellowBoxRef, 1, {
-        delay: window.matchMedia("(max-width: 414px)").matches ? 1 : 0,
-        x: 0,
-        opacity: 1,
-      });
+    //animate phone
+    gsap.to(phoneRef, 1, {
+      delay: 0.5,
+      y: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: scrollRef,
+        start: "top center",
+      },
+    });
 
-      //animate phone
-      gsap.to(phoneRef, 1, {
-        delay: 0.5,
-        y: 0,
-        opacity: 1,
-      });
+    //animate title
+    gsap.to(titleRef, 1, {
+      delay: window.matchMedia("(max-width: 414px)").matches ? 0 : 1,
+      y: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: scrollRef,
+        start: "top center",
+      },
+    });
 
-      //animate title
-      gsap.to(titleRef, 1, {
-        delay: window.matchMedia("(max-width: 414px)").matches ? 0 : 1,
-        y: 0,
-        opacity: 1,
-      });
-
-      //animate subtitle
-      gsap.to(subtitleRef, 1, {
-        delay: window.matchMedia("(max-width: 414px)").matches ? 0 : 1.2,
-        y: 0,
-        opacity: 1,
-      });
-    }
-  }, [inView]);
+    //animate subtitle
+    gsap.to(subtitleRef, 1, {
+      delay: window.matchMedia("(max-width: 414px)").matches ? 0 : 1.2,
+      y: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: scrollRef,
+        start: "top center",
+      },
+    });
+  }, []);
   return (
-    <TradeInYourCarSectionStyled ref={ref}>
+    <TradeInYourCarSectionStyled ref={(el) => (scrollRef = el)}>
       <PhoneStyled src={phone} ref={(el) => (phoneRef = el)} />
       <div>
         <YellowBoxStyled ref={(el) => (yellowBoxRef = el)}>

@@ -45,17 +45,18 @@ function App() {
     };
     const tim = setTimeout(() => {
       setModal(false);
-    }, 2000);
+    }, 600);
 
     //animate logo
 
-    gsap.to(ringRef, 1.5, {
+    gsap.to(ringRef, 0.6, {
       delay: 0,
       rotate: 45,
+      ease: "linear",
     });
 
-    gsap.to(modalRef, 2, {
-      delay: 1,
+    gsap.to(modalRef, 0, {
+      delay: 0.5,
       // rotate: 45,
       opacity: 0,
     });
@@ -73,13 +74,16 @@ function App() {
             <img src={loadCrown} />
             <RingStyled src={ring} ref={(el) => (ringRef = el)} />
           </ModalStyled>
-        ) : null}
-        <Header />
-        <CarFlipperSection />
-        <DeliveredToYourDoorSection />
-        <TradeInYourCarSection />
-        <ThreeBoxesSection />
-        <BottomSection />
+        ) : (
+          <>
+            <Header />
+            <CarFlipperSection />
+            <DeliveredToYourDoorSection />
+            <TradeInYourCarSection />
+            <ThreeBoxesSection />
+            <BottomSection />
+          </>
+        )}
       </AppStyled>
     </ThemeProvider>
   );

@@ -21,7 +21,7 @@ export const Header = () => {
       opacity: 1,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1 + delayer,
+      delay: 0,
     });
 
     //animate phone
@@ -29,7 +29,7 @@ export const Header = () => {
       opacity: 1,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1.5 + delayer,
+      delay: 0.5,
     });
 
     //animate big title
@@ -38,7 +38,7 @@ export const Header = () => {
       y: 0,
       x: 0,
       ease: Power3.easeOut,
-      delay: 1.5 + delayer,
+      delay: 0.5,
     });
 
     //animate big title
@@ -47,7 +47,7 @@ export const Header = () => {
       y: 0,
 
       ease: Power3.easeOut,
-      delay: 1.5 + delayer,
+      delay: 0.5,
     });
   }, []);
   return (
