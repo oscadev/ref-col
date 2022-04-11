@@ -236,6 +236,7 @@ export const CarFlipperSection = () => {
           </ContentBoxStyled>
 
           <CarImageStyled
+            key={cars[carSelected].img + "img"}
             src={cars[carSelected].img}
             ref={(el) => (carRef = el)}
           />
